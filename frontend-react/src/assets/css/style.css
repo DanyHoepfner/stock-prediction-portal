@@ -1,0 +1,18 @@
+body {
+  background-color: #212529;
+  padding: 10px;
+}
+
+.bg-light-dark {
+  background-color: #2b3045;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+}
