@@ -1,8 +1,8 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./AuthProvider";
+import axiosInstance from "../axiosInstance";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
@@ -20,10 +20,7 @@ const Login = () => {
     console.log("User Data ==> ", userData);
 
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/v1/token/",
-        userData
-      );
+      const response = await axiosInstance.post("/token/", userData);
       console.log(response);
       localStorage.setItem("accessToken", response.data.access);
       localStorage.setItem("refreshToken", response.data.refresh);
